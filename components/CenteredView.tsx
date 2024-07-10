@@ -4,12 +4,26 @@ import { View as DefaultView } from "react-native";
 
 export type ViewProps = ThemeProps & DefaultView["props"];
 
-export default function View(props: ViewProps) {
+export default function CenteredView(props: ViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor(
     { light: lightColor, dark: darkColor },
     "background"
   );
 
-  return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+  return (
+    <DefaultView
+      style={[
+        {
+          backgroundColor,
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 10,
+        },
+        style,
+      ]}
+      {...otherProps}
+    />
+  );
 }

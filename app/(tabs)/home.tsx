@@ -5,15 +5,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import CenteredView from "@/components/CenteredView";
 import { router } from "expo-router";
 
-const SignUp = () => {
+const Home = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <CenteredView>
-        <Text>SignUp</Text>
-        <Button title="Go back" onPress={() => router.back()} />
-      </CenteredView>
-    </SafeAreaView>
+    <CenteredView>
+      <Text>Home</Text>
+      <Button
+        title="Go back to first screen in stack"
+        onPress={() => router.back()}
+      />
+    </CenteredView>
   );
 };
 
-export default SignUp;
+export default Home;
