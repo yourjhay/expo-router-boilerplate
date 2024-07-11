@@ -11,6 +11,9 @@ interface AdditionalProps {
    */
   rightElement?: React.JSX.Element;
 
+  /**
+   * Custom Icon on the left side of the text input
+   */
   leftElement?: React.JSX.Element;
 
   /**
