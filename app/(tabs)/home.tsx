@@ -9,10 +9,7 @@ const Home = () => {
   return (
     <CenteredView>
       <Text>Home</Text>
-      <Button
-        title="Go back to first screen in stack"
-        onPress={() => router.back()}
-      />
+      <Button title="Go back to first screen in stack" onPress={() => router.back()} />
     </CenteredView>
   );
 };

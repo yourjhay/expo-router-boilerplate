@@ -7,12 +7,12 @@ import { useEffect, useState } from "react";
 
 export {
   // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
+  ErrorBoundary
 } from "expo-router";
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "index",
+  initialRouteName: "index"
 };
 
 SplashScreen.preventAutoHideAsync();
@@ -41,7 +41,7 @@ export default function RootLayout() {
           PoppinsSemiBold: require("../assets/fonts/Poppins/Poppins-SemiBold.ttf"),
           PoppinsSemiBoldItalic: require("../assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf"),
           PoppinsThin: require("../assets/fonts/Poppins/Poppins-Thin.ttf"),
-          PoppinsThinItalic: require("../assets/fonts/Poppins/Poppins-ThinItalic.ttf"),
+          PoppinsThinItalic: require("../assets/fonts/Poppins/Poppins-ThinItalic.ttf")
         });
         SplashScreen.hideAsync();
         setLoaded(true);
@@ -68,8 +68,8 @@ export const DarkTheme: Theme = {
     card: "rgb(18, 18, 18)",
     text: "rgb(229, 229, 231)",
     border: "rgb(39, 39, 41)",
-    notification: "rgb(255, 69, 58)",
-  },
+    notification: "rgb(255, 69, 58)"
+  }
 };
 
 export const DefaultTheme: Theme = {
@@ -80,8 +80,8 @@ export const DefaultTheme: Theme = {
     card: "rgb(255, 255, 255)",
     text: "rgb(28, 28, 30)",
     border: "rgb(216, 216, 216)",
-    notification: "rgb(255, 59, 48)",
-  },
+    notification: "rgb(255, 59, 48)"
+  }
 };
 
 function RootLayoutNav() {

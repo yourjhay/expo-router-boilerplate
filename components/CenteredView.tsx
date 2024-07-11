@@ -6,10 +6,7 @@ export type ViewProps = ThemeProps & DefaultView["props"];
 
 export default function CenteredView(props: ViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor(
-    { light: lightColor, dark: darkColor },
-    "background"
-  );
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, "background");
 
   return (
     <DefaultView
@@ -19,9 +16,9 @@ export default function CenteredView(props: ViewProps) {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          padding: 10,
+          padding: 10
         },
-        style,
+        style
       ]}
       {...otherProps}
     />

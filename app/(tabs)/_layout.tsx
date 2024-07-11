@@ -10,18 +10,14 @@ const TabsLayout = () => {
         name="home"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />
         }}
       />
       <Tabs.Screen
         name="account"
         options={{
           title: "Account",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="user-circle" color={color} />
-          ),
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="user-circle" color={color} />
         }}
       />
     </Tabs>

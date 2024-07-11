@@ -10,13 +10,10 @@ const index = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <CenteredView>
-        <Text style={{ fontFamily: "PoppinsSemiBold", fontSize: 20 }}>
-          Welcome
-        </Text>
+        <Text style={{ fontFamily: "PoppinsSemiBold", fontSize: 20 }}>Welcome</Text>
         <Text>This screen can be serve as onboarding screen.</Text>
         <Text style={{ textAlign: "center" }}>
-          On iOS devices, you can slide from left to right to back on previous
-          screen
+          On iOS devices, you can slide from left to right to back on previous screen
         </Text>
         <Link href="/signin" style={{ color: "blue" }}>
           Signin
