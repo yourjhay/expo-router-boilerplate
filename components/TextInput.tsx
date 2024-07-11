@@ -1,43 +1,55 @@
 import { View, Text, TextInput as RNTextInput, Pressable } from "react-native";
 import React from "react";
 import { useThemeColor } from "@/hooks/useThemeColor";
-import { ThemeProps } from "@/types/theme.types";
+import { InputThemeProps, ThemeProps } from "@/types/theme.types";
 import Row from "./Row";
+import Colors from "@/constants/Colors";
 
 interface AdditionalProps {
   /**
    * Custom Icon on the right side of the text input
    */
-  icon?: React.JSX.Element;
+  rightElement?: React.JSX.Element;
+
+  leftElement?: React.JSX.Element;
 
   /**
    * Callback Function to be called when icon is pressed
    */
   onIconPress?: () => void;
+
+  /**
+   * Custom style for the text input container
+   */
+  containerStyle?: View["props"]["style"];
 }
 
-export type TextProps = ThemeProps & RNTextInput["props"] & AdditionalProps;
+export type TextProps = InputThemeProps & ThemeProps & RNTextInput["props"] & AdditionalProps;
 
-export function TextInput(props: TextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
+type Ref = React.ForwardedRef<RNTextInput>;
+
+const TextInput = React.forwardRef(({ ...props }: TextProps, ref: Ref) => {
+  const { containerStyle, style, lightColor, darkColor, lightTextColor, darkTextColor, ...otherProps } = props;
+  const color = useThemeColor({ light: lightTextColor, dark: darkTextColor }, "text");
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, "background");
-  const borderColor = useThemeColor({ light: lightColor, dark: darkColor }, "inputBorder");
 
   return (
     <Row
       alignCenter
       style={[
         {
-          borderColor,
+          backgroundColor,
+          borderColor: Colors.inputBorder,
           borderWidth: 1,
           width: "100%",
           borderRadius: 5
         },
-        style
+        containerStyle
       ]}
     >
+      <View>{props.leftElement && <View style={{ paddingHorizontal: 10 }}>{props.leftElement}</View>}</View>
       <RNTextInput
+        ref={ref}
         style={[
           {
             color,
@@ -45,13 +57,16 @@ export function TextInput(props: TextProps) {
             flex: 1,
             paddingVertical: 14,
             paddingHorizontal: 8
-          }
+          },
+          style
         ]}
         {...otherProps}
       />
       <Pressable onPress={props.onIconPress}>
-        {props.icon && <View style={{ paddingHorizontal: 8 }}>{props.icon}</View>}
+        {props.rightElement && <View style={{ paddingHorizontal: 10 }}>{props.rightElement}</View>}
       </Pressable>
     </Row>
   );
-}
+});
+
+export default TextInput;
