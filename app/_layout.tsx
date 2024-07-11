@@ -21,6 +21,11 @@ export default function RootLayout() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    /**
+     * Asynchronously loads different font styles using Font.loadAsync and sets loaded state.
+     *
+     * @return {Promise<void>} Promise that resolves when fonts are loaded
+     */
     const loadFonts = async () => {
       try {
         await Font.loadAsync({

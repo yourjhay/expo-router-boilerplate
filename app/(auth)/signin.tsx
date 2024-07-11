@@ -13,7 +13,10 @@ const SignIn = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <CenteredView>
-        <TextInput containerStyle={{ marginBottom: 5 }} placeholder="Text Input" />
+        <Text style={{ fontFamily: "PoppinsSemiBold", fontSize: 20 }}>
+          Toggle your device dark or light mode to see the effect
+        </Text>
+        <TextInput containerStyle={{ marginVertical: 5 }} placeholder="Text Input" />
         <TextInput
           containerStyle={{ marginBottom: 5 }}
           darkColor="#413f66"
@@ -39,9 +42,9 @@ const SignIn = () => {
           rightElement={<FontAwesome size={20} name={showPassword ? "eye" : "eye-slash"} color={"gray"} />}
         />
 
-        <Button title="Login" onPress={() => router.replace("/home")} />
+        <Button title="Plain button: Login (press me)" onPress={() => router.replace("/home")} />
         <Link href="/signup" style={{ color: "blue" }}>
-          Sign up
+          Link: Sign up (press me)
         </Link>
       </CenteredView>
     </SafeAreaView>
